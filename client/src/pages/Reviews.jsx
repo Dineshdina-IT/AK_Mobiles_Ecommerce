@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import axios from '../api/axios';
 import { Star, ThumbsUp, User } from 'lucide-react';
 import { AuthContext } from '../context/AuthContext';
 import { Toast } from '../components/Toast';

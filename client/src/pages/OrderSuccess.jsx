@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axios';
 import { CheckCircle } from 'lucide-react';
 import { AuthContext } from '../context/AuthContext';
 

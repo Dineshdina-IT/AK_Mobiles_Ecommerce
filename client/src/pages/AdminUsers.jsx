@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axios';
 import { Trash2 } from 'lucide-react';
 import { AuthContext } from '../context/AuthContext';
 import { Toast } from '../components/Toast';
