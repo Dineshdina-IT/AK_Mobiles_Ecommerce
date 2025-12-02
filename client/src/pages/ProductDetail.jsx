@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axios';
 import { Star, ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Toast } from '../components/Toast';
 import { CartContext } from '../context/CartContext';

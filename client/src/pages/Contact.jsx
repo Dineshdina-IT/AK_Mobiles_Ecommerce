@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../api/axios';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Toast } from '../components/Toast';
 
