@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get('/api/auth/me', {
+      const response = await axios.get('https://ak-mobiles-ecommerce.onrender.com/api/auth/me', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(response.data.user);
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
   const signup = async (name, email, password, confirmPassword) => {
     setLoading(true);
     try {
-      const response = await axios.post('/api/auth/signup', {
+      const response = await axios.post('https://ak-mobiles-ecommerce.onrender.com/api/auth/signup', {
         name,
         email,
         password,
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     setLoading(true);
     try {
-      const response = await axios.post('/api/auth/login', { email, password });
+      const response = await axios.post('https://ak-mobiles-ecommerce.onrender.com/api/auth/login', { email, password });
       setToken(response.data.token);
       setUser(response.data.user);
       localStorage.setItem('token', response.data.token);

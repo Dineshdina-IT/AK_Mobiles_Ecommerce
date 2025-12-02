@@ -25,8 +25,8 @@ export const Home = () => {
   const fetchData = async () => {
     try {
       const [productsRes, categoriesRes] = await Promise.all([
-        axios.get('/api/products?sort=popularity'),
-        axios.get('/api/categories'),
+        axios.get('https://ak-mobiles-ecommerce.onrender.com/api/products?sort=popularity'),
+        axios.get('https://ak-mobiles-ecommerce.onrender.com/api/categories'),
       ]);
       
       const allProducts = productsRes.data.products || [];

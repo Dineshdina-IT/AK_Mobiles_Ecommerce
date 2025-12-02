@@ -1,26 +1,25 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { AuthContext } from './AuthContext';
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const { token } = useContext(AuthContext);
   const [cart, setCart] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (token) {
-      fetchCart();
-    }
-  }, [token]);
+    fetchCart();
+  }, []);
 
   const fetchCart = async () => {
     try {
-      const response = await axios.get('/api/cart', {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setCart(response.data.cart);
+      const token = localStorage.getItem('token');
+      if (token) {
+        const response = await axios.get('https://ak-mobiles-ecommerce.onrender.com/api/cart', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setCart(response.data);
+      }
     } catch (error) {
       console.error('Error fetching cart:', error);
     }
@@ -29,8 +28,9 @@ export const CartProvider = ({ children }) => {
   const addToCart = async (productId, quantity, variant) => {
     setLoading(true);
     try {
+      const token = localStorage.getItem('token');
       const response = await axios.post(
-        '/api/cart',
+        'https://ak-mobiles-ecommerce.onrender.com/api/cart',
         { productId, quantity, variant },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -45,8 +45,9 @@ export const CartProvider = ({ children }) => {
 
   const updateCart = async (itemId, quantity) => {
     try {
+      const token = localStorage.getItem('token');
       const response = await axios.put(
-        `/api/cart/${itemId}`,
+        `https://ak-mobiles-ecommerce.onrender.com/api/cart/${itemId}`,
         { quantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -59,7 +60,8 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = async (itemId) => {
     try {
-      const response = await axios.delete(`/api/cart/${itemId}`, {
+      const token = localStorage.getItem('token');
+      const response = await axios.delete(`https://ak-mobiles-ecommerce.onrender.com/api/cart/${itemId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCart(response.data.cart);
@@ -71,7 +73,8 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = async () => {
     try {
-      const response = await axios.delete('/api/cart', {
+      const token = localStorage.getItem('token');
+      const response = await axios.delete('https://ak-mobiles-ecommerce.onrender.com/api/cart', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCart(response.data.cart);
