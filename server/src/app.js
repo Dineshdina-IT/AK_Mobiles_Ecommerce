@@ -15,8 +15,9 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['https://ak-mobiles-rmkp.vercel.app', 'http://localhost:5173'],
-  credentials: true
+  origin: ['https://ak-mobiles-rmkp.vercel.app', 'https://akmobiles.vercel.app', 'http://localhost:5173'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
