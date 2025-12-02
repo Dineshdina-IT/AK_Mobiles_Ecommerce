@@ -16,6 +16,10 @@ exports.signup = async (req, res) => {
       return res.status(400).json({ success: false, message: 'Passwords do not match' });
     }
 
+    if (password.length < 6) {
+      return res.status(400).json({ success: false, message: 'Password must be at least 6 characters long' });
+    }
+
     let user = await User.findOne({ email });
     if (user) {
       return res.status(400).json({ success: false, message: 'User already exists' });
@@ -40,7 +44,11 @@ exports.signup = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    console.error('Signup error:', error);
+    if (error.code === 11000) {
+      return res.status(400).json({ success: false, message: 'User already exists' });
+    }
+    res.status(500).json({ success: false, message: 'Server error during signup' });
   }
 };
 
@@ -80,7 +88,8 @@ exports.login = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    console.error('Login error:', error);
+    res.status(500).json({ success: false, message: 'Server error during login' });
   }
 };
 
