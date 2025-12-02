@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../api/axios';
 import { ChevronRight, Smartphone, MessageCircle } from 'lucide-react';
 import { ProductCard } from '../components/ProductCard';
 import { CategoryCarousel } from '../components/CategoryCarousel';
@@ -25,8 +25,8 @@ export const Home = () => {
   const fetchData = async () => {
     try {
       const [productsRes, categoriesRes] = await Promise.all([
-        axios.get('https://ak-mobiles-ecommerce.onrender.com/api/products?sort=popularity'),
-        axios.get('https://ak-mobiles-ecommerce.onrender.com/api/categories'),
+        axios.get('/api/products?sort=popularity'),
+        axios.get('/api/categories'),
       ]);
       
       const allProducts = productsRes.data.products || [];

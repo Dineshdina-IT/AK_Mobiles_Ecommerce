@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../api/axios';
 
 export const CartContext = createContext();
 
@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
     try {
       const token = localStorage.getItem('token');
       if (token) {
-        const response = await axios.get('https://ak-mobiles-ecommerce.onrender.com/api/cart', {
+        const response = await axios.get('/api/cart', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCart(response.data);
@@ -30,7 +30,7 @@ export const CartProvider = ({ children }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'https://ak-mobiles-ecommerce.onrender.com/api/cart',
+        '/api/cart',
         { productId, quantity, variant },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `https://ak-mobiles-ecommerce.onrender.com/api/cart/${itemId}`,
+        `/api/cart/${itemId}`,
         { quantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -61,7 +61,7 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = async (itemId) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.delete(`https://ak-mobiles-ecommerce.onrender.com/api/cart/${itemId}`, {
+      const response = await axios.delete(`/api/cart/${itemId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCart(response.data.cart);
@@ -74,7 +74,7 @@ export const CartProvider = ({ children }) => {
   const clearCart = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.delete('https://ak-mobiles-ecommerce.onrender.com/api/cart', {
+      const response = await axios.delete('/api/cart', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCart(response.data.cart);
