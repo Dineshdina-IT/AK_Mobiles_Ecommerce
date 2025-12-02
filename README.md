@@ -6,7 +6,7 @@ A complete, production-ready eCommerce website for mobile phones built with Reac
 
 ### Frontend (React + Tailwind CSS)
 - **Responsive Mobile-First Design** - Works perfectly on all devices
-- **Modern UI/UX** - Orange & White theme inspired by Poorvika
+- **Modern UI/UX** - Orange & White theme inspired by AKmobile(Own Shop)
 - **Product Catalog** - Browse, search, filter, and sort products
 - **Product Details** - Image carousel, variants, reviews, ratings
 - **Shopping Cart** - Add/remove items, update quantities
@@ -88,8 +88,8 @@ npm install
 
 Create `.env` file:
 ```
-MONGODB_URI=mongodb+srv://dinesh57399_db_user:yilbxleBxe3gWgVE@ecommerce-mern.ea1kktw.mongodb.net/?appName=ecommerce-mern
-JWT_SECRET=ak_mobiles_secret_key_2024
+MONGODB_URI=mongodb+srv://<db_user>:<db_password>@ecommerce-mern.ea1kktw.mongodb.net/?appName=ecommerce-mern
+JWT_SECRET=your_key
 PORT=5000
 NODE_ENV=development
 ```
@@ -201,52 +201,6 @@ The app will be available at `http://localhost:3000`
 - **Protected Routes** - Middleware for route protection
 - **Input Validation** - Server-side validation
 
-## 📊 Database Schema
-
-### Users
-```javascript
-{
-  name: String,
-  email: String (unique),
-  password: String (hashed),
-  phone: String,
-  address: Object,
-  role: String (user/admin),
-  avatar: String,
-  timestamps: true
-}
-```
-
-### Products
-```javascript
-{
-  name: String,
-  description: String,
-  category: ObjectId,
-  price: Number,
-  stock: Number,
-  image: String,
-  images: [String],
-  variants: [{ram, storage, color, priceDiff, stock}],
-  reviews: [{userId, rating, comment, createdAt}],
-  rating: Number,
-  numReviews: Number,
-  timestamps: true
-}
-```
-
-### Orders
-```javascript
-{
-  userId: ObjectId,
-  items: [{productId, quantity, price, variant}],
-  totalAmount: Number,
-  status: String (pending/shipped/delivered),
-  shippingAddress: Object,
-  paymentStatus: String,
-  timestamps: true
-}
-```
 
 ## 🚀 Deployment
 
@@ -288,13 +242,12 @@ VITE_API_URL=http://localhost:5000/api
 
 This project is licensed under the MIT License.
 
-## 📞 Support
+## 📞 Query
 
-For support, email support@akmobiles.com or contact via WhatsApp: +91 8940457399
+For Query, email dinesh57399@gmail.com or contact via WhatsApp: +91 8940457399
 
 ## 🙏 Acknowledgments
 
-- Inspired by Poorvika.com
 - Built with React, Node.js, Express, MongoDB
 - UI components with Tailwind CSS
 - Icons from Lucide React
@@ -302,4 +255,4 @@ For support, email support@akmobiles.com or contact via WhatsApp: +91 8940457399
 
 ---
 
-**Made with ❤️ by AK Mobiles Team**
+**Made with ❤️ by AK Mobiles **
