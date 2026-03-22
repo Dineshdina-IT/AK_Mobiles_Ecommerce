@@ -2,7 +2,7 @@
 
 A complete, production-ready eCommerce website for mobile phones built with React, Node.js, Express, and MongoDB Atlas.
 
-## 🎨 Features
+##  Features
 
 ### Frontend (React + Tailwind CSS)
 - **Responsive Mobile-First Design** - Works perfectly on all devices
@@ -31,7 +31,7 @@ A complete, production-ready eCommerce website for mobile phones built with Reac
 - **Relationships**: Proper indexing and references
 - **Scalability**: Cloud-based MongoDB Atlas
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ak-mobiles/
@@ -66,7 +66,7 @@ ak-mobiles/
 └── README.md
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v16+)
@@ -112,7 +112,7 @@ npm run dev
 
 The app will be available at `http://localhost:3000`
 
-## 📚 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /api/auth/signup` - Register new user
@@ -155,7 +155,7 @@ The app will be available at `http://localhost:3000`
 - `GET /api/admin/users` - Get all users
 - `DELETE /api/admin/users/:id` - Delete user
 
-## 🎯 Key Pages
+## Key Pages
 
 ### User Pages
 - **Home** - Hero banner, categories, trending products
@@ -202,7 +202,7 @@ The app will be available at `http://localhost:3000`
 - **Input Validation** - Server-side validation
 
 
-## 🚀 Deployment
+## Deployment
 
 ### Frontend (Netlify/Vercel)
 ```bash
@@ -215,7 +215,7 @@ npm run build
 git push heroku main
 ```
 
-## 📝 Environment Variables
+## Environment Variables
 
 ### Server (.env)
 ```
@@ -230,7 +230,7 @@ NODE_ENV=production
 VITE_API_URL=http://localhost:5000/api
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create feature branch (`git checkout -b feature/AmazingFeature`)
@@ -238,15 +238,15 @@ VITE_API_URL=http://localhost:5000/api
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
 
-## 📞 Query
+## Query
 
 For Query, email dinesh57399@gmail.com or contact via WhatsApp: +91 8940457399
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with React, Node.js, Express, MongoDB
 - UI components with Tailwind CSS
